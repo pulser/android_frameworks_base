@@ -724,8 +724,8 @@ public class LockPatternUtils {
      * Save a device encryption password.  Does not do any checking on complexity.
      * @param password The password to save
      */
-    public void saveLockPassword(String password) {
-        this.saveLockPassword(password, getCurrentOrCallingUserId());
+    public void saveEncryptionPassword(String password) {
+        this.saveEncryptionPassword(password, getCurrentOrCallingUserId());
     }
 
      /**
