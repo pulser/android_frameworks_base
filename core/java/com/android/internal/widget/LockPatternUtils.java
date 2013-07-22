@@ -727,24 +727,18 @@ public class LockPatternUtils {
     public void saveLockPassword(String password) {
         this.saveLockPassword(password, getCurrentOrCallingUserId());
     }
-    
+
      /**
      * Save a device encryption password.  Does not do any checking on complexity.
      * @param password The password to save
      * @param userHandle The userId of the user to change the password for
      */
     public void saveEncryptionPassword(String password, int userHandle) {
-        try {
-            if (password != null) {
-                if (userHandle == UserHandle.USER_OWNER) {
-                    // Update the encryption password.
-                    updateEncryptionPassword(password);
-                }
+        if (password != null) {
+            if (userHandle == UserHandle.USER_OWNER) {
+                // Update the encryption password.
+                updateEncryptionPassword(password);
             }
-        }
-        catch (RemoteException re) {
-            // Cant do much
-            Log.e(TAG, "Unable to save encryption password " + re);
         }
     }
 
